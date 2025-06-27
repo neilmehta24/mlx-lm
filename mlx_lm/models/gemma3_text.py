@@ -181,7 +181,7 @@ class Gemma3Model(nn.Module):
             h = input_embeddings
         else:
             h = self.embed_tokens(inputs)
-        h *= mx.array(self.args.hidden_size**0.5, mx.bfloat16).astype(h.dtype)
+            h *= mx.array(self.args.hidden_size**0.5, mx.bfloat16).astype(h.dtype)
 
         if cache is None:
             cache = [None] * len(self.layers)
